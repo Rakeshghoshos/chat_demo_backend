@@ -135,7 +135,6 @@ io.on("connection", (socket) => {
   // Handle sending messages using socketMap
   socket.on("send-message", ({ sender, recipient, message, timestamp }) => {
     const recipientSocketId = socketMap[recipient];
-    console.log(timestamp);
     if (recipientSocketId) {
       io.to(recipientSocketId).emit("receive-message", {
         sender,
